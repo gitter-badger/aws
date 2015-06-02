@@ -1,0 +1,6 @@
+PuppetServer:
+  image: vladgh/puppetserver
+  ports:
+    - '8140:8140'
+  hostname: puppet
+  domainname: vladgh.com
