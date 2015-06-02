@@ -1,2 +1,1 @@
-# aws
-Vlad's AWS Infrastructure
+# Vlad's AWS Infrastructure
