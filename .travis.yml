@@ -7,8 +7,10 @@ env:
     - DOCKER_PORT_RANGE=2400:2500
     - SLIRP_PORTS=$(seq 2375 2500)
 
-install:
+before_install:
   - sudo apt-get -qqy update
+
+install:
   - wget -qO- https://get.docker.com/ | sh
   - sudo sudo usermod -aG docker "$USER"
   - sudo apt-get -qqy install slirp
