@@ -11,6 +11,9 @@ machine:
     - docker
 
 dependencies:
+  pre:
+    - scripts/prepare.sh:
+        timeout: 300
   override:
     - scripts/run.sh:
         timeout: 300

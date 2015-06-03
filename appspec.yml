@@ -4,6 +4,9 @@ files:
   - source: .
     destination: /opt/vgh/aws
 hooks:
+  AfterInstall:
+    - location: scripts/prepare.sh
+      timeout: 300
   ApplicationStart:
     - location: scripts/run.sh
       timeout: 300
