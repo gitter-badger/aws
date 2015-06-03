@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: .
+    destination: /opt/vgh/aws
+hooks:
+  ApplicationStart:
+    - location: scripts/run.sh
+      timeout: 300
+      runas: root
+  ValidateService:
+    - location: hooks/validate.sh
+      timeout: 300
+      runas: root
