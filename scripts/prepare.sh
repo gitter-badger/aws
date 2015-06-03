@@ -12,6 +12,7 @@ else
 fi
 
 # Install AWS CLI if not installed already
+aws --version || true
 is_cmd pip || sudo apt-get install -qqy python-pip
 is_cmd aws && aws --version || sudo pip install awscli
 

@@ -15,6 +15,7 @@ wait_for 'curl --insecure --output /dev/null --silent --head --fail https://loca
 container_running \
   aws_PuppetServer_1
 
+aws --version
 aws s3 ls
 
 e_finish
