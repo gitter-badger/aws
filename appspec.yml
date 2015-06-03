@@ -11,5 +11,5 @@ hooks:
     - location: scripts/run.sh
       timeout: 300
   ValidateService:
-    - location: hooks/validate.sh
+    - location: scripts/validate.sh
       timeout: 300

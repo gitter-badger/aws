@@ -3,6 +3,9 @@
 # Load common functions
 . $(dirname $0)/common.sh
 
+# Update APT
+sudo apt-get -qqy update
+
 # Install docker-compose if not installed already
 if [ -s $COMPOSE ] && [ -x $COMPOSE ]; then
   echo "'${COMPOSE}' is present."
@@ -12,8 +15,8 @@ else
 fi
 
 # Install AWS CLI if not installed already
-aws --version || true
 is_cmd pip || sudo apt-get install -qqy python-pip
 is_cmd aws && aws --version || sudo pip install awscli
 
+# DONE
 e_finish
