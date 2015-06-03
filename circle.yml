@@ -12,10 +12,10 @@ machine:
 
 dependencies:
   override:
-    - sudo scripts/run.sh:
+    - scripts/run.sh:
         timeout: 300
 
 test:
   override:
-    - sudo scripts/validate.sh:
+    - scripts/validate.sh:
         timeout: 300
