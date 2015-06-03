@@ -12,9 +12,10 @@ machine:
 
 dependencies:
   override:
-    - sudo scripts/run.sh
+    - sudo scripts/run.sh:
+        timeout: 300
 
 test:
   override:
-    - until $(curl --insecure --output /dev/null --silent --head --fail https://localhost:8140/puppet-ca/v1/certificate/ca); do sleep 5; done:
+    - sudo scripts/validate.sh:
         timeout: 300
