@@ -1,0 +1,17 @@
+machine:
+  services:
+    - docker
+  environment:
+    CIRCLE_ENV: test
+dependencies:
+  pre:
+    - sudo curl -Lo /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m`
+    - sudo chmod +x /usr/local/bin/docker-compose
+  override:
+    - docker-compose build
+    - docker-compose pull
+    - docker-compose up -d
+test:
+  override:
+    - until $(curl --insecure --output /dev/null --silent --head --fail https://localhost:8140/puppet-ca/v1/certificate/ca); do sleep 5; done:
+        timeout: 300
