@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
 # PATHS
 DOCKER='/usr/bin/docker'
@@ -10,7 +10,7 @@ is_cmd() { command -v "$@" > /dev/null 2>&1 ;}
 
 # $1 => error message, $2 => exit code (defaults to 1)
 e_abort() { echo $1; exit ${2:-1}; }
-e_finish() { echo $(basename "$0") "finished @ $(date)"; exit 0; }
+e_finish() { echo "Finished $(basename $0) at $(/bin/date "+%F %T")"; }
 
 # Check if container is running
 container_running() {
