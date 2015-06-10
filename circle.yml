@@ -34,10 +34,10 @@ deployment:
   dev:
     branch: dev
     commands:
-      - ./scripts/deploy.sh
+      - ./scripts/deploy.sh:
           timeout: 300
   production:
     branch: master
     commands:
-      - ./scripts/deploy.sh
+      - ./scripts/deploy.sh:
           timeout: 300
