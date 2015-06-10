@@ -4,10 +4,12 @@
 . <(wget -qO- https://vladgh.s3.amazonaws.com/scripts/common.sh) || true
 source_remote_script aws.sh
 
-sha=$(git rev-parse --short HEAD)
+# VARs
+sha=$(git rev-parse --short HEAD 2>/dev/null)
 branch=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3)
 [[ $branch == 'master' ]] && branch='production'
-cd_key="${branch}/${cd_key}-${sha}.${cd_bundle}"
+cd_bundle='zip'
+cd_key="$(echo $cd_key | sed "s/{branch}/$branch/")-${sha}.${cd_bundle}"
 
 # Deploy
 echo 'Deploying...'
