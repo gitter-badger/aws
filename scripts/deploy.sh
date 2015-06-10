@@ -15,7 +15,7 @@ aws deploy push \
   --ignore-hidden-files \
   --s3-location s3://${cd_bucket}/${key} \
   --source ./
-aws deploy create-deployment --application-name ${cd_app} --s3-location bucket=${cd_bucket},key=${key},bundleType=${cd_bundle} --deployment-group-name ${cd_group} --deployment-config-name ${cd_config}
+aws deploy create-deployment --application-name ${cd_app} --s3-location bucket=${cd_bucket},key=${cd_key},bundleType=${cd_bundle} --deployment-group-name ${cd_group} --deployment-config-name ${cd_config}
 
 # DONE
 e_finish
