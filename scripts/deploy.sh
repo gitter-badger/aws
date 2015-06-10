@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Load common functions
-. $(dirname $0)/common.sh
+# Load Functions
+. <(wget -qO- https://vladgh.s3.amazonaws.com/scripts/common.sh) || true
 
 # Deploy
 echo 'Deploying...'

@@ -3,14 +3,11 @@
 # Load Functions
 . <(wget -qO- https://vladgh.s3.amazonaws.com/scripts/common.sh) || true
 
-# Update System
-update_system
-
-# Load AWS Functions
+# Ensure AWS Environment
 source_remote_script aws.sh
 ensure_awscli
 
-# Load Docker Functions
+# Ensure Docker Environment
 source_remote_script docker.sh
 ensure_docker && ensure_docker_compose
 
