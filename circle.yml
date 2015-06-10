@@ -33,7 +33,11 @@ test:
 deployment:
   dev:
     branch: dev
-    commands: ./scripts/deploy.sh
+    commands:
+      - ./scripts/deploy.sh
+          timeout: 300
   production:
     branch: master
-    commands: ./scripts/deploy.sh
+    commands:
+      - ./scripts/deploy.sh
+          timeout: 300
