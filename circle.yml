@@ -33,7 +33,7 @@ deployment:
           revision_type: S3
           s3_location:
             bucket: vladgh
-            key_pattern: deploy-{BRANCH}/vgh-{SHORT_COMMIT}-{BUILD_NUM}
+            key_pattern: deploy/{BRANCH}/vgh-{SHORT_COMMIT}-{BUILD_NUM}
         region: us-east-1
         deployment_group: development
         deployment_config: CodeDeployDefault.OneAtATime
@@ -46,7 +46,7 @@ deployment:
           revision_type: S3
           s3_location:
             bucket: vladgh
-            key_pattern: deploy/vgh-{SHORT_COMMIT}-{BUILD_NUM}
+            key_pattern: deploy/production/vgh-{SHORT_COMMIT}-{BUILD_NUM}
         region: us-east-1
         deployment_group: production
         deployment_config: CodeDeployDefault.OneAtATime
