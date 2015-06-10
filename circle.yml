@@ -9,6 +9,13 @@ general:
 machine:
   services:
     - docker
+  environment:
+    cd_app: 'VGH'
+    cd_group: 'DEV'
+    cd_config: 'CodeDeployDefault.OneAtATime'
+    cd_bucket: 'vladgh'
+    cd_key: 'vgh'
+    cd_bundle: 'zip'
 
 dependencies:
   pre:
@@ -24,29 +31,9 @@ test:
         timeout: 300
 
 deployment:
-  staging:
+  dev:
     branch: dev
-    codedeploy:
-      VGH:
-        application_root: /
-        revision_location:
-          revision_type: S3
-          s3_location:
-            bucket: vladgh
-            key_pattern: deploy/{BRANCH}/vgh-{SHORT_COMMIT}-{BUILD_NUM}.zip
-        region: us-east-1
-        deployment_group: development
-        deployment_config: CodeDeployDefault.OneAtATime
+    commands: ./scripts/deploy.sh
   production:
     branch: master
-    codedeploy:
-      VGH:
-        application_root: /
-        revision_location:
-          revision_type: S3
-          s3_location:
-            bucket: vladgh
-            key_pattern: deploy/production/vgh-{SHORT_COMMIT}-{BUILD_NUM}.zip
-        region: us-east-1
-        deployment_group: production
-        deployment_config: CodeDeployDefault.OneAtATime
+    commands: ./scripts/deploy.sh
