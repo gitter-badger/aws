@@ -14,7 +14,7 @@ machine:
     cd_group: 'DEV'
     cd_config: 'CodeDeployDefault.OneAtATime'
     cd_bucket: 'vladgh'
-    cd_key: 'deploy/{branch}/vgh'
+    cd_key: 'deploy/{branch}/vgh-{sha}-{build}'
 
 dependencies:
   pre:

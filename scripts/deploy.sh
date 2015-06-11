@@ -8,8 +8,13 @@ source_remote_script aws.sh
 sha=$(git rev-parse --short HEAD 2>/dev/null)
 branch=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3)
 [[ $branch == 'master' ]] && branch='production'
+build=${CIRCLE_BUILD_NUM:-0}
 cd_bundle='zip'
-cd_key="$(echo $cd_key | sed "s/{branch}/$branch/")-${sha}.${cd_bundle}"
+
+# Compose file name
+cd_key=$(echo $cd_key | sed "s/{branch}/$branch/")
+cd_key=$(echo $cd_key | sed "s/{sha}/$sha/")
+cd_key=$(echo $cd_key | sed "s/{build}/$build/")
 
 # Deploy
 echo 'Deploying...'
