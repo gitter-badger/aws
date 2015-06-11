@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -ex
 
 # Load Functions
 . <(wget -qO- https://vladgh.s3.amazonaws.com/scripts/common.sh) || true
