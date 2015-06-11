@@ -13,6 +13,7 @@ build=${CIRCLE_BUILD_NUM:-0}
 cd_bundle='zip'
 
 # Compose file name
+cd_key="${cd_key}.${cd_bundle}"
 cd_key=$(echo $cd_key | sed "s/{branch}/$branch/")
 cd_key=$(echo $cd_key | sed "s/{sha}/$sha/")
 cd_key=$(echo $cd_key | sed "s/{build}/$build/")
