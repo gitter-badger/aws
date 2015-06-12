@@ -15,9 +15,13 @@ cd_bundle='zip'
 
 # Compose file name
 cd_key="${cd_key}.${cd_bundle}"
-cd_key=$(echo $cd_key | sed "s/{branch}/$branch/")
-cd_key=$(echo $cd_key | sed "s/{sha}/$sha/")
-cd_key=$(echo $cd_key | sed "s/{build}/$build/")
+cd_key=$(echo $cd_key | sed "s/{branch}/${branch}/")
+cd_key=$(echo $cd_key | sed "s/{sha}/${sha}/")
+cd_key=$(echo $cd_key | sed "s/{build}/${build}/")
+
+# Prepare appspec.yml
+data_dir="/opt/${cd_app}/${cd_group}"
+sed -i "s/{data_dir}/${data_dir}/" appspec.yml
 
 # Deploy
 echo 'Deploying...'

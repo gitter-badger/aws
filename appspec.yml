@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: .
-    destination: /opt/vgh/aws
+    destination: {data_dir}
 hooks:
   AfterInstall:
     - location: scripts/prepare.sh
