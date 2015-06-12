@@ -1,17 +1,42 @@
+general:
+  branches:
+    only:
+      - master
+      - dev
+      - /feature-.*/
+      - /test-.*/
+
 machine:
   services:
     - docker
   environment:
-    CIRCLE_ENV: test
+    cd_app: 'VGH'
+    cd_group: 'DEV'
+    cd_config: 'CodeDeployDefault.OneAtATime'
+    cd_bucket: 'vladgh'
+    cd_key: 'deploy/{branch}/vgh-{sha}-{build}'
+
 dependencies:
   pre:
-    - sudo curl -Lo /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.2.0/docker-compose-`uname -s`-`uname -m`
-    - sudo chmod +x /usr/local/bin/docker-compose
+    - scripts/prepare.sh:
+        timeout: 300
   override:
-    - docker-compose build
-    - docker-compose pull
-    - docker-compose up -d
+    - scripts/run.sh:
+        timeout: 300
+
 test:
   override:
-    - until $(curl --insecure --output /dev/null --silent --head --fail https://localhost:8140/puppet-ca/v1/certificate/ca); do sleep 5; done:
+    - scripts/validate.sh:
         timeout: 300
+
+deployment:
+  dev:
+    branch: dev
+    commands:
+      - ./scripts/deploy.sh:
+          timeout: 300
+  production:
+    branch: master
+    commands:
+      - ./scripts/deploy.sh:
+          timeout: 300

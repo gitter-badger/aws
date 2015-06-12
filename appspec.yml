@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: .
+    destination: /opt/vgh/aws
+hooks:
+  AfterInstall:
+    - location: scripts/prepare.sh
+      timeout: 300
+  ApplicationStart:
+    - location: scripts/run.sh
+      timeout: 300
+  ValidateService:
+    - location: scripts/validate.sh
+      timeout: 300
