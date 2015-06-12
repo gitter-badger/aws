@@ -11,7 +11,6 @@ machine:
     - docker
   environment:
     cd_app: 'VGH'
-    cd_group: 'DEV'
     cd_config: 'CodeDeployDefault.OneAtATime'
     cd_bucket: 'vladgh'
     cd_key: 'deploy/{branch}/vgh-{sha}-{build}'

@@ -9,6 +9,7 @@ source_remote_script aws.sh
 sha=$(git rev-parse --short HEAD 2>/dev/null)
 branch=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3)
 [[ $branch == 'master' ]] && branch='production'
+cd_group=$branch
 build=${CIRCLE_BUILD_NUM:-0}
 cd_bundle='zip'
 
