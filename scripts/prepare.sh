@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-set -ex
 
 # Load Functions
-. <(wget -qO- https://vladgh.s3.amazonaws.com/scripts/common.sh) || true
+. $(dirname $0)/common.sh
 
 # Ensure AWS Environment
 source_remote_script aws.sh

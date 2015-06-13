@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: .
-    destination: {data_dir}
+    destination: {DATA_DIR}
 hooks:
   AfterInstall:
     - location: scripts/prepare.sh
