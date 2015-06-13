@@ -9,7 +9,7 @@ BRANCH=$(git symbolic-ref --short HEAD)
 SHA=$(git rev-parse --short HEAD 2>/dev/null)
 [[ $BRANCH == 'master' ]] && ENV='production' || ENV=$BRANCH
 BUILD=${CIRCLE_BUILD_NUM:-0}
-DEPLOYMENT_GROUP_NAME=$BRANCH
+DEPLOYMENT_GROUP_NAME=$ENV
 DEPLOYMENT_BUNDLE='zip'
 DATA_DIR="/opt/${APPLICATION_NAME}"
 
