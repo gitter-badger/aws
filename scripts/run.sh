@@ -1,22 +1,21 @@
 #!/usr/bin/env bash
-set -ex
 
 # Load Functions
-. <(wget -qO- https://vladgh.s3.amazonaws.com/scripts/common.sh) || true
+. $(dirname $0)/common.sh
+
+# Change to the app directory when deployed
+if [ -n "${DEPLOYMENT_ID}" ]; then
+  cd $DATA_DIR
+fi
+
+# Load Docker functions
 source_remote_script docker.sh
-
-# Change to the app directory
-[[ $CIRCLECI != true ]] && cd /opt/vgh/aws
-
 # Pull all images
 $COMPOSE pull
 # Build environment
 $COMPOSE build
 # Start all containers
-$COMPOSE up -d
-
-# Wait for PuppetServer to start
-wait_for 'curl --insecure --output /dev/null --silent --head --fail https://localhost:8140/puppet-ca/v1/certificate/ca'
+$COMPOSE --project-name $APPLICATION_NAME up -d
 
 # DONE
 e_finish

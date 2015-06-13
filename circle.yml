@@ -10,11 +10,10 @@ machine:
   services:
     - docker
   environment:
-    cd_app: 'VGH'
-    cd_group: 'DEV'
-    cd_config: 'CodeDeployDefault.OneAtATime'
-    cd_bucket: 'vladgh'
-    cd_key: 'deploy/{branch}/vgh-{sha}-{build}'
+    APPLICATION_NAME: 'VGH'
+    DEPLOYMENT_BUCKET: 'vladgh'
+    DEPLOYMENT_KEY: 'deploy/vgh-{SHA}-{BUILD}'
+    DEPLOYMENT_CONFIG: 'CodeDeployDefault.OneAtATime'
 
 dependencies:
   pre:
@@ -30,11 +29,6 @@ test:
         timeout: 300
 
 deployment:
-  dev:
-    branch: dev
-    commands:
-      - ./scripts/deploy.sh:
-          timeout: 300
   production:
     branch: master
     commands:

@@ -1,4 +1,4 @@
-PuppetServer:
+puppetserver:
   image: vladgh/puppetserver
   ports:
     - '8140:8140'
