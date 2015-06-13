@@ -12,7 +12,7 @@ machine:
   environment:
     APPLICATION_NAME: 'VGH'
     DEPLOYMENT_BUCKET: 'vladgh'
-    DEPLOYMENT_KEY: 'deploy/{BRANCH}/vgh-{SHA}-{BUILD}'
+    DEPLOYMENT_KEY: 'deploy/vgh-{SHA}-{BUILD}'
     DEPLOYMENT_CONFIG: 'CodeDeployDefault.OneAtATime'
 
 dependencies:

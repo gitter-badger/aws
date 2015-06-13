@@ -15,7 +15,7 @@ is_cmd docker-compose || e_abort 'Docker compose is not installed!'
 wait_for 'curl --insecure --output /dev/null --silent --fail https://localhost:8140/puppet-ca/v1/certificate/ca'
 
 # Check running containers
-container_running \
+container_is_running \
   vgh_puppetserver_1
 
 # DONE
