@@ -13,7 +13,7 @@ DEPLOYMENT_GROUP_NAME=$ENV
 DEPLOYMENT_BUNDLE='zip'
 DATA_DIR="/opt/${APPLICATION_NAME}"
 
-# Compose file name
+# Compose deployment key
 DEPLOYMENT_KEY=$(echo "${DEPLOYMENT_KEY}.${DEPLOYMENT_BUNDLE}" | \
   sed "s/{BRANCH}/${BRANCH}/" | \
   sed "s/{SHA}/${SHA}/" | \

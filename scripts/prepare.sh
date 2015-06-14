@@ -3,6 +3,10 @@
 # Load Functions
 . $(dirname $0)/common.sh
 
+# Ensure Ruby Environment (RVM)
+source_remote_script ruby.sh
+ensure_rvm && install_gem librarian-puppet
+
 # Ensure AWS Environment
 source_remote_script aws.sh
 ensure_awscli
