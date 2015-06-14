@@ -12,7 +12,7 @@ source_remote_script docker.sh
 ensure_docker && ensure_docker_compose
 
 # Ensure Puppet
-source_remote_script puppet.sh.sh
+source_remote_script puppet.sh
 ensure_puppet_agent
 
 # DONE
