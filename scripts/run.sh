@@ -8,6 +8,9 @@ if [ -n "${DEPLOYMENT_ID}" ]; then
   cd $DATA_DIR
 fi
 
+# Install Puppet Modules
+librarian-puppet install --path puppetlabs/code/modules --clean --verbose
+
 # Load Docker functions
 source_remote_script docker.sh
 # Pull all images
