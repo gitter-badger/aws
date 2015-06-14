@@ -13,7 +13,7 @@ ensure_docker && ensure_docker_compose
 
 # Ensure Puppet
 source_remote_script puppet.sh
-ensure_puppet_agent
+ensure_release_package && ensure_puppet_agent
 
 # DONE
 e_finish
