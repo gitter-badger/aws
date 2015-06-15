@@ -10,9 +10,9 @@ fi
 
 # Install Puppet Modules
 if $CI; then
-  PATH=$PATH:/opt/puppetlabs/bin
-  mkdir -p puppetlabs/code/modules && cd puppetlabs/code
-  librarian-puppet install --path modules --clean --verbose
+  cd puppetlabs/code
+  source_remote_script puppet.sh && load_puppet_path
+  $PUPPET_LIBRARIAN install --path modules --clean --verbose
 fi
 
 # Load Docker functions
