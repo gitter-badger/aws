@@ -9,7 +9,10 @@ if [ -n "${DEPLOYMENT_ID}" ]; then
 fi
 
 # Install Puppet Modules
-librarian-puppet install --path puppetlabs/code/modules --clean --verbose
+if $CI; then
+  mkdir -p puppetlabs/code/modules && cd puppetlabs/code
+  librarian-puppet install --path modules --clean --verbose
+fi
 
 # Load Docker functions
 source_remote_script docker.sh
