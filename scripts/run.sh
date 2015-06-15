@@ -10,6 +10,7 @@ fi
 
 # Install Puppet Modules
 if $CI; then
+  PATH=$PATH:/opt/puppetlabs/bin
   mkdir -p puppetlabs/code/modules && cd puppetlabs/code
   librarian-puppet install --path modules --clean --verbose
 fi
