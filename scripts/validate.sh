@@ -3,9 +3,6 @@
 # Load Functions
 . $(dirname $0)/common.sh
 
-# Load Docker functions
-source_remote_script docker.sh
-
 # Check Docker
 is_cmd docker || e_abort 'Docker is not installed!'
 # Check Docker Compose

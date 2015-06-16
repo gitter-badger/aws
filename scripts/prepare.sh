@@ -3,17 +3,22 @@
 # Load Functions
 . $(dirname $0)/common.sh
 
+# Ensure Puppet
+ensure_puppet_agent
+
+# Ensure Ruby
+install_rvm
+
+# Ensure Puppet Modules
+load_puppet_path && load_rvm && install_gem librarian-puppet
+cd $PUPPET_CODE_DIR
+librarian-puppet install --path modules --clean --verbose
+
 # Ensure AWS Environment
-source_remote_script aws.sh
 ensure_awscli
 
 # Ensure Docker Environment
-source_remote_script docker.sh
-ensure_docker && ensure_docker_compose
-
-# Ensure Puppet
-source_remote_script puppet.sh
-ensure_release_package && ensure_puppet_agent && ensure_librarian
+ensure_docker_compose
 
 # DONE
 e_finish
