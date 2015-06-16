@@ -8,7 +8,11 @@ SHA=$(git rev-parse --short HEAD 2>/dev/null || true)
 BUILD=${CIRCLE_BUILD_NUM:-0}
 DEPLOYMENT_GROUP_NAME=$ENV
 DEPLOYMENT_BUNDLE='zip'
-DATA_DIR="/opt/${APPLICATION_NAME}"
+if $CI; then
+  DATA_DIR="./"
+else
+  DATA_DIR="/${DATA_DIR}/${APPLICATION_NAME}"
+fi
 PUPPET_CODE_DIR="${DATA_DIR}/puppetlabs/code"
 
 # Compose deployment key

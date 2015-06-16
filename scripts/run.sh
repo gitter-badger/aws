@@ -4,9 +4,7 @@
 . $(dirname $0)/common.sh
 
 # Change to the app directory when deployed
-if [ -n "${DEPLOYMENT_ID}" ]; then
-  cd $DATA_DIR
-fi
+cd $DATA_DIR
 
 # Pull all images
 $COMPOSE pull
