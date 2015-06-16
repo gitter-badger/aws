@@ -10,7 +10,8 @@ install_puppet_agent
 install_rvm
 
 # Ensure Puppet Modules
-load_puppet_path && load_rvm && install_gem librarian-puppet
+load_puppet_path && load_rvm
+rvm use 2.2.1 && install_gem librarian-puppet
 cd $PUPPET_CODE_DIR
 librarian-puppet install --path modules --clean --verbose
 
