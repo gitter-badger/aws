@@ -4,7 +4,7 @@
 . $(dirname $0)/common.sh
 
 # Ensure Puppet
-ensure_puppet_agent
+install_puppet_agent
 
 # Ensure Ruby
 install_rvm
@@ -15,10 +15,10 @@ cd $PUPPET_CODE_DIR
 librarian-puppet install --path modules --clean --verbose
 
 # Ensure AWS Environment
-ensure_awscli
+install_awscli
 
 # Ensure Docker Environment
-ensure_docker_compose
+install_docker_compose
 
 # DONE
 e_finish
