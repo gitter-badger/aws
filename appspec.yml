@@ -1,6 +1,9 @@
 version: 0.0
 os: linux
 hooks:
+  ApplicationStop:
+    - location: scripts/standby.sh
+      timeout: 300
   AfterInstall:
     - location: scripts/prepare.sh
       timeout: 300
@@ -9,4 +12,6 @@ hooks:
       timeout: 300
   ValidateService:
     - location: scripts/validate.sh
+      timeout: 300
+    - location: scripts/standby.sh
       timeout: 300
