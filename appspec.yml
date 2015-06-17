@@ -1,10 +1,9 @@
 version: 0.0
 os: linux
 hooks:
-  ApplicationStop:
+  AfterInstall:
     - location: scripts/standby.sh
       timeout: 300
-  AfterInstall:
     - location: scripts/prepare.sh
       timeout: 300
   ApplicationStart:
