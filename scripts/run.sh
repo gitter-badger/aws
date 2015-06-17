@@ -3,6 +3,8 @@
 # Load Functions
 . $(dirname $0)/common.sh
 
+pwd
+
 # Pull all images
 $COMPOSE pull
 # Build environment
