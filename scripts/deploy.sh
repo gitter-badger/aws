@@ -3,9 +3,6 @@
 # Load Functions
 . $(dirname $0)/common.sh
 
-# Prepare appspec.yml
-sed -i "s:{DATA_DIR}:${DATA_DIR}:" appspec.yml
-
 # Deploy
 awscmd deploy push \
   --application-name ${APPLICATION_NAME} \

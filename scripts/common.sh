@@ -7,12 +7,7 @@ SHA=$(git rev-parse --short HEAD 2>/dev/null || true)
 [[ $BRANCH == 'master' ]] && ENV='production' || ENV=$BRANCH
 BUILD=${CIRCLE_BUILD_NUM:-0}
 DEPLOYMENT_GROUP_NAME=$ENV
-if $CI; then
-  DATA_DIR="./"
-else
-  DATA_DIR="/${DATA_DIR}/${APPLICATION_NAME}"
-fi
-PUPPET_CODE_DIR="${DATA_DIR}/puppetlabs/code"
+PUPPET_CODE_DIR="puppetlabs/code"
 
 # Compose deployment key
 DEPLOYMENT_KEY=$(echo "${DEPLOYMENT_KEY}.${DEPLOYMENT_BUNDLE}" | \
