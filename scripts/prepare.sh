@@ -10,10 +10,12 @@ install_puppet_agent
 install_rvm
 
 # Ensure Puppet Modules
+# FIXME Not good at all
 load_puppet_path && load_rvm
-rvm use 2.2.1 && install_gem librarian-puppet
+#rvm use 2.2.1
+install_gem r10k
 cd $PUPPET_CODE_DIR
-librarian-puppet install --path modules --clean --verbose
+r10k puppetfile install --verbose
 
 # Ensure AWS Environment
 install_awscli
