@@ -3,12 +3,8 @@ general:
     only:
       - master
       - dev
-      - /feature-.*/
-      - /test-.*/
 
 machine:
-  ruby:
-    version: 2.2.0
   services:
     - docker
   environment:
@@ -17,6 +13,7 @@ machine:
     DEPLOYMENT_BUCKET: 'vladgh'
     DEPLOYMENT_KEY: 'deploy/vgh-{SHA}-{BUILD}'
     DEPLOYMENT_CONFIG: 'CodeDeployDefault.OneAtATime'
+    DEPLOYMENT_BUNDLE: 'zip'
 
 dependencies:
   pre:

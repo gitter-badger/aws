@@ -7,7 +7,6 @@ SHA=$(git rev-parse --short HEAD 2>/dev/null || true)
 [[ $BRANCH == 'master' ]] && ENV='production' || ENV=$BRANCH
 BUILD=${CIRCLE_BUILD_NUM:-0}
 DEPLOYMENT_GROUP_NAME=$ENV
-DEPLOYMENT_BUNDLE='zip'
 if $CI; then
   DATA_DIR="./"
 else
