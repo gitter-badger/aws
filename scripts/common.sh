@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -ex
+set -e
 
 # VARs
 BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || true)

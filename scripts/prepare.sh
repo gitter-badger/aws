@@ -11,9 +11,9 @@ install_rvm
 
 # Ensure Puppet Modules
 # FIXME Not good at all
-load_puppet_path && load_rvm
+# load_puppet_path && load_rvm
 #rvm use 2.2.1
-install_gem r10k
+gem install r10k
 cd $PUPPET_CODE_DIR
 r10k puppetfile install --verbose
 
