@@ -17,7 +17,7 @@ container_is_running \
 
 # Create a link to the latest deployed app
 if [ -n "${DEPLOYMENT_ID}" ]; then
-  sudo ln -fs $DATA_DIR /opt/vgh
+  sudo ln -fs $DATA_DIR /opt/${APPLICATION_NAME}/${DEPLOYMENT_GROUP_NAME}
 fi
 
 # DONE
