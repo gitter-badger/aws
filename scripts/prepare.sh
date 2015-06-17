@@ -7,7 +7,7 @@
 install_puppet_agent
 
 # Ensure Ruby 2.2
-install_rvm && rvm 2.2
+install_rvm && load_rvm && rvm 2.2
 gem install r10k
 
 # Ensure Puppet Modules
