@@ -3,6 +3,11 @@
 # Load Functions
 . $(dirname $0)/common.sh
 
+# Create a link to the latest deployed app
+if [ -n "${DEPLOYMENT_ID}" ]; then
+  sudo ln -fs $DATA_DIR /opt/${APPLICATION_NAME}/${DEPLOYMENT_GROUP_NAME}
+fi
+
 # Ensure Puppet
 install_puppet_agent
 

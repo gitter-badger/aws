@@ -15,10 +15,5 @@ wait_for 'curl --insecure --output /dev/null --silent --fail https://localhost:8
 container_is_running \
   vgh_puppetserver_1
 
-# Create a link to the latest deployed app
-if [ -n "${DEPLOYMENT_ID}" ]; then
-  sudo ln -fs $DATA_DIR /opt/${APPLICATION_NAME}/${DEPLOYMENT_GROUP_NAME}
-fi
-
 # DONE
 e_finish
