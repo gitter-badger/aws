@@ -8,7 +8,6 @@ machine:
   services:
     - docker
   environment:
-    DATA_DIR: '/opt'
     APPLICATION_NAME: 'VGH'
     DEPLOYMENT_BUCKET: 'vladgh'
     DEPLOYMENT_KEY: 'deploy/vgh-{SHA}-{BUILD}'

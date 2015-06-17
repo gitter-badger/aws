@@ -3,9 +3,6 @@
 # Load Functions
 . $(dirname $0)/common.sh
 
-# Change to the app directory when deployed
-cd $DATA_DIR
-
 # Pull all images
 $COMPOSE pull
 # Build environment
