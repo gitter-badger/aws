@@ -3,17 +3,17 @@ general:
     only:
       - master
       - dev
-      - /feature-.*/
-      - /test-.*/
 
 machine:
   services:
     - docker
   environment:
+    DATA_DIR: '/opt'
     APPLICATION_NAME: 'VGH'
     DEPLOYMENT_BUCKET: 'vladgh'
     DEPLOYMENT_KEY: 'deploy/vgh-{SHA}-{BUILD}'
     DEPLOYMENT_CONFIG: 'CodeDeployDefault.OneAtATime'
+    DEPLOYMENT_BUNDLE: 'zip'
 
 dependencies:
   pre:

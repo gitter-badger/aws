@@ -7,7 +7,6 @@
 sed -i "s:{DATA_DIR}:${DATA_DIR}:" appspec.yml
 
 # Deploy
-source_remote_script aws.sh
 awscmd deploy push \
   --application-name ${APPLICATION_NAME} \
   --ignore-hidden-files \

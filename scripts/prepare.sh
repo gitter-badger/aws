@@ -3,17 +3,22 @@
 # Load Functions
 . $(dirname $0)/common.sh
 
+# Ensure Puppet
+install_puppet_agent
+
+# Ensure Ruby 2.2
+install_rvm && load_rvm
+rvm install 2.2 && rvm 2.2
+gem install r10k
+
+# Ensure Puppet Modules
+cd $PUPPET_CODE_DIR && r10k puppetfile install --verbose
+
 # Ensure AWS Environment
-source_remote_script aws.sh
-ensure_awscli
+install_awscli
 
 # Ensure Docker Environment
-source_remote_script docker.sh
-ensure_docker && ensure_docker_compose
-
-# Ensure Puppet
-source_remote_script puppet.sh.sh
-ensure_puppet_agent
+install_docker_compose
 
 # DONE
 e_finish
