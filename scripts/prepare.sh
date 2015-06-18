@@ -5,7 +5,7 @@
 
 # Create a link to the latest deployed app
 if [ -n "${DEPLOYMENT_ID}" ]; then
-  sudo ln -sfn $DATA_DIR /opt/${APPLICATION_NAME}-${DEPLOYMENT_GROUP_NAME}
+  sudo ln -sfn $DATA_DIR /opt/${APPLICATION_NAME}
 fi
 
 # Ensure Puppet
