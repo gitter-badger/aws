@@ -11,7 +11,7 @@ machine:
     APPLICATION_NAME: 'VGH'
     DEPLOYMENT_BUCKET: 'vladgh'
     DEPLOYMENT_KEY: 'deploy/vgh-{SHA}-{BUILD}'
-    DEPLOYMENT_CONFIG: 'CodeDeployDefault.AllAtOnce'
+    DEPLOYMENT_CONFIG: 'CodeDeployDefault.OneAtATime'
     DEPLOYMENT_BUNDLE: 'zip'
 
 dependencies:
