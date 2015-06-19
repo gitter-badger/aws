@@ -16,8 +16,8 @@ fi
 # Ensure Puppet
 install_puppet_agent
 
-# Ensure Ruby 2.2
-install_rvm && load_rvm && rvm_use_ruby 2.2
+# Ensure Ruby 2.2.1
+install_rvm && load_rvm && rvm_use_ruby 2.2.1
 
 # Ensure Puppet Modules
 install_gem r10k
