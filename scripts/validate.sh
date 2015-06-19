@@ -9,5 +9,10 @@ container_is_running vgh_puppetserver_1
 # Wait for PuppetServer to start and return certificate
 wait_for 'curl --insecure --output /dev/null --silent --fail https://localhost:8140/puppet-ca/v1/certificate/ca'
 
+# Exit StandBy
+if [[ "${LIFECYCLE_EVENT}" == 'ValidateService' ]]; then
+  autoscaling_exit_standby
+fi
+
 # DONE
 e_finish
