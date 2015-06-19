@@ -10,6 +10,7 @@ DEPLOYMENT_GROUP_NAME=${DEPLOYMENT_GROUP_NAME:-$ENV}
 DATA_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 PUPPET_CODE_DIR="${DATA_DIR}/puppetlabs/code"
 HOME='/home/ubuntu'
+PATH=$PATH:/usr/local/sbin
 
 # Compose deployment key
 DEPLOYMENT_KEY=$(echo "${DEPLOYMENT_KEY}.${DEPLOYMENT_BUNDLE}" | \
